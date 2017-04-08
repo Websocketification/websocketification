@@ -1,0 +1,14 @@
+{
+  "name": "websocketification",
+  "version": "0.8.0",
+  "description": "WebsocketificationJs: real-time, simple web framework.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Fisher",
+  "license": "ISC",
+  "dependencies": {
+    "path-to-regexp": "^1.7.0"
+  }
+}
