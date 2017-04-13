@@ -38,10 +38,17 @@ class Connection {
 
 	onMessage(message) {
 		console.log(`Got message: ${message}`);
+		try {
+			message = JSON.parse(message);
+		} catch (ex) {
+			// Here we ignore the invalid json string send from client.
+			new Response(this.mWS, new Request(this.mWS, {})).error(400, 'BAD REQUEST!');
+			return;
+		}
 		/**
-		 * The request object.
+		 * The request and response object.
 		 */
-		let req = new Request(this.mWS, JSON.parse(message));
+		let req = new Request(this.mWS, message);
 		req.sessions = this.mWS.mRequestLocals;
 		let res = new Response(this.mWS, req);
 		res.sessions = this.mWS.mResponseLocals;
